@@ -21,7 +21,7 @@ app.py
         app.run(debug=True, port=8000)
 
 
-yamlpages/test#.yml
+yamlpages/#test#.yml
 -------------------
     title: test yamlpage
     body: |
