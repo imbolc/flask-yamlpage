@@ -1,0 +1,7 @@
+title: test yamlpage
+body: |
+    Yamlpage
+    ========
+    test 2
+
+    [back to the index]({{ url_for('index') }})
