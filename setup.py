@@ -28,7 +28,7 @@ setup(
     name         = NAME,
     url          = 'https://github.com/imbolc/%s' % NAME.replace('_', '-'),
     version      = VER,
-    description  = README.split('===\n')[-1].strip().split('\n\n')[0],
+    description  = README.split('===\n', 1)[-1].strip().split('\n\n')[0],
     long_description = README.split('\n\n', 1)[-1],
 
     py_modules   = [NAME],
