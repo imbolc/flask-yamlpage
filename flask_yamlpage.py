@@ -45,7 +45,9 @@ class FlaskYamlPage(yamlpage.YamlPage):
         if app.config['YAMLPAGE_MARKDOWN_FILTER']:
             @app.template_filter('render')
             def render_filter(s):
-                return flask.render_template_string(s)
+                if '{{' in s or '{%' in s:
+                    return flask.render_template_string(
+                        s, **flask.g.yamlpage_context)
 
 
     def get_or_404(self, url):
@@ -60,4 +62,6 @@ class FlaskYamlPage(yamlpage.YamlPage):
             return
         template = page.get('template',
                 self.app.config['YAMLPAGE_DEFAULT_TEMPLATE'])
-        return flask.render_template(template, page=page)
+        context = {'page': page}
+        flask.g.yamlpage_context = context
+        return flask.render_template(template, **context)

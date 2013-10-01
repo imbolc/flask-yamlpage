@@ -7,7 +7,7 @@ except ImportError:
 	from distutils.core import setup
 
 
-VER  = '0.0.5'
+VER  = '0.0.6'
 NAME = 'flask_yamlpage'
 try:
     README = open('README.md').read()
